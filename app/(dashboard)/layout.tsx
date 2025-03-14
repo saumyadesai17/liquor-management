@@ -204,26 +204,9 @@ export default function DashboardLayout({
         id="sidebar"
         className={`${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        } fixed top-16 left-0 h-[calc(100vh-4rem)] w-full md:w-64 bg-card border-r border-border transition-transform duration-300 ease-in-out z-40 md:translate-x-0 shadow-lg md:shadow-none`}
+        } fixed top-16 left-0 bottom-0 w-full md:w-64 bg-card border-r border-border transition-transform duration-300 ease-in-out z-40 md:translate-x-0 shadow-lg md:shadow-none flex flex-col`}
       >
-        <div className="h-full flex flex-col">
-          {/* Close button for mobile - positioned at the top right */}
-          {/* <button
-            className="md:hidden absolute top-4 right-4 p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-secondary focus:outline-none transition-colors"
-            onClick={() => setSidebarOpen(false)}
-            aria-label="Close sidebar"
-          >
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              className="h-6 w-6" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button> */}
-          
+        <div className="flex-1 flex flex-col h-full overflow-y-auto">
           {/* User profile info at the top of sidebar on mobile */}
           <div className="md:hidden p-4 border-b border-border">
             <div className="flex items-center">
@@ -237,8 +220,8 @@ export default function DashboardLayout({
             </div>
           </div>
           
-          {/* Navigation links - with fixed height and no scroll */}
-          <div className="flex-1 px-4 py-4">
+          {/* Navigation links - with scrollable container */}
+          <div className="flex-1 px-4 py-4 overflow-y-auto">
             <nav className="space-y-1">
               <Link 
                 href="/dashboard" 
@@ -318,7 +301,7 @@ export default function DashboardLayout({
           </div>
           
           {/* Sign out button in sidebar - always visible at bottom */}
-          <div className="border-t border-border p-4 mt-auto">
+          <div className="border-t border-border p-4 mt-auto sticky bottom-0 bg-card">
             <button
               onClick={handleSignOut}
               className="w-full flex items-center justify-center text-sm text-muted-foreground hover:text-accent bg-secondary/50 hover:bg-secondary py-2 rounded-md transition-colors"
