@@ -226,7 +226,7 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="relative bg-card/50 backdrop-blur-sm text-foreground py-16 px-4 md:px-8 lg:px-16 border-t border-border">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="flex flex-col items-center justify-center">
             <div>
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
@@ -239,7 +239,7 @@ export default function LandingPage() {
               </p>
             </div>
             
-            <div>
+            {/* <div>
               <h4 className="font-semibold text-foreground text-xl mb-6">Product</h4>
               <ul className="space-y-4">
                 <li>
@@ -300,7 +300,7 @@ export default function LandingPage() {
                   </Link>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
           
           <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center">
@@ -311,7 +311,7 @@ export default function LandingPage() {
               <Link href="https://www.linkedin.com/in/saumya-desai-42757328a/" target="_blank" className="text-foreground/80 hover:text-foreground transition-colors">
                 <span className="sr-only">LinkedIn</span>
                 <svg className="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
                 </svg>
               </Link>
               <Link href="https://github.com/saumyadesai17" target="_blank" className="text-foreground/80 hover:text-foreground transition-colors">
