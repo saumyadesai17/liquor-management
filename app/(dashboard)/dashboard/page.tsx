@@ -3,18 +3,10 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { 
-  BarChart, Bar, PieChart, Pie, Cell, 
+  BarChart, Bar, Cell, 
   XAxis, YAxis, CartesianGrid, Tooltip, 
   Legend, ResponsiveContainer, TooltipProps 
 } from 'recharts';
-
-interface OrderItem {
-  inventory_id: number;
-  quantity: number;
-  inventory: {
-    name: string;
-  } | null;
-}
 
 interface Order {
   id: number;
