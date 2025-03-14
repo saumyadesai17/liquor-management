@@ -207,13 +207,14 @@ export default function Inventory() {
     } catch (error: unknown) {
       console.error('Error saving item:', error);
       if (error instanceof Error && 'code' in error) {
-        if ((error as any).code === 'PGRST116') {
+        const errorCode = (error as { code: string }).code;
+        if (errorCode === 'PGRST116') {
           alert('You do not have permission to modify inventory. Please check if you are logged in as an admin user.');
-        } else if ((error as any).code === '23503') {
+        } else if (errorCode === '23503') {
           alert('Invalid category selected. Please choose a valid category.');
-        } else if ((error as any).code === '23502') {
+        } else if (errorCode === '23502') {
           alert('Please fill in all required fields.');
-        } else if ((error as any).code === '42501') {
+        } else if (errorCode === '42501') {
           alert('Permission denied. Please check if you are logged in as an admin user.');
         }
       } else {
