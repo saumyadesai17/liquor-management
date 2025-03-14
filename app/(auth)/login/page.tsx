@@ -24,6 +24,11 @@ export default function LoginPage() {
       });
 
       if (error) {
+        // Check specifically for email not confirmed error
+        if (error.message.toLowerCase().includes('email not confirmed')) {
+          setError('Please verify your email address before signing in. Check your inbox for the confirmation link.');
+          return;
+        }
         throw error;
       }
 

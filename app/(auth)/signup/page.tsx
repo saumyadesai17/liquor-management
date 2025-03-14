@@ -62,10 +62,10 @@ export default function SignUpPage() {
         
         setSuccess(true);
         
-        // Redirect after a short delay
+        // Redirect after a longer delay to give user time to read the message
         setTimeout(() => {
           router.push('/login');
-        }, 2000);
+        }, 5000);
       }
     } catch (error: unknown) {
       if (error instanceof Error) {
@@ -102,7 +102,7 @@ export default function SignUpPage() {
           
           {success && (
             <div className="mb-4 bg-green-500/10 border border-green-500/20 text-green-400 px-3 py-2 sm:px-4 sm:py-3 rounded text-sm">
-              Account created successfully! Redirecting to login...
+              Account created successfully! Please check your email for a confirmation link. You will be redirected to the login page in a few seconds...
             </div>
           )}
           

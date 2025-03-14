@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍾 Liquor Management System (LiquorPOS)
 
-## Getting Started
+![LiquorPOS Banner](public/screenshots/landing-page.png)
 
-First, run the development server:
+A modern **liquor inventory and sales management system** built using **Next.js 15** and **Supabase**. LiquorPOS helps event organizers and store owners **manage stock, track sales, and process orders efficiently** with an intuitive dashboard.
 
+## ✨ Features
+
+✅ **Inventory Management** - Track liquor stock levels in real-time 🔥  
+✅ **Point of Sale (POS)** - Process transactions quickly with an intuitive UI 💳  
+✅ **Sales Analytics** - View revenue, best-selling products, and low-stock alerts 📊  
+✅ **User Authentication** - Secure login and signup using Supabase 🔐  
+✅ **Dark Mode UI** - Sleek and modern user interface with a dark theme 🌙  
+✅ **Mobile Responsive** - Fully optimized for desktops, tablets, and mobile devices 📱  
+
+## 🏗️ Tech Stack
+
+- **Frontend:** Next.js 15, React, Tailwind CSS
+- **Backend:** Supabase (Auth, Database, Storage)
+- **Charts & Analytics:** Recharts, Chart.js
+- **UI Animations:** Framer Motion
+
+## 📸 Screenshots
+
+### Dashboard
+![Dashboard](/public/screenshots/dashboard.png)
+
+### POS System
+![POS](/public/screenshots/pos.png)
+
+### Inventory
+![Inventory](/public/screenshots/inventory.png)
+
+## 🗄️ Database Schema
+
+Here is the database schema used for LiquorPOS:
+
+![Database Schema](/public/screenshots/schema.png)
+
+| Table Name      | Description |
+|----------------|------------|
+| `categories`   | Stores liquor categories with descriptions |
+| `inventory`    | Tracks liquor stock levels, pricing, and supplier details |
+| `orders`       | Stores customer orders, payment details, and total amounts |
+| `order_items`  | Links individual liquor products to orders for itemized billing |
+| `profiles`     | Manages user profiles, roles, and authentication details |
+
+
+## 🚀 Getting Started
+
+### 1️⃣ Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/liquor-management.git
+cd liquor-management
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2️⃣ Install Dependencies
+```bash
+npm install  # or yarn install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3️⃣ Setup Environment Variables
+Create a `.env.local` file and add your **Supabase credentials**:
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_key
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4️⃣ Run the Development Server
+```bash
+npm run dev  # or yarn dev
+```
+Access the app at **[LiquorPOS](https://liquor-pos.vercel.app/)**
 
-## Learn More
+## 🎯 Roadmap
+- [ ] Implement role-based access control (Admin, Cashier) 🛂
+- [ ] Add AI-powered sales forecasting 🤖
+- [ ] Export sales reports as PDFs 📄
 
-To learn more about Next.js, take a look at the following resources:
+## 🙌 Contributing
+Pull requests are welcome! If you'd like to contribute, please **fork the repository** and submit a PR. For major changes, please open an issue first.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📜 License
+This project is **MIT Licensed**. Feel free to use and modify it as needed.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+🔗 **Follow Me:** [GitHub](https://github.com/saumyadesai17) | [LinkedIn](https://www.linkedin.com/in/saumya-desai-42757328a/)
