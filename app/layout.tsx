@@ -15,6 +15,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
+        <meta name="theme-color" content="#2563eb" />
+      </head>
       <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}>
         {children}
       </body>
