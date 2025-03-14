@@ -94,9 +94,14 @@ export default function Inventory() {
       
       setInventory(inventoryData || []);
       
-    } catch (error: any) {
-      console.error('Error loading data:', error);
-      alert(`Failed to load inventory data: ${error.message || 'Unknown error'}`);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error('Error loading data:', error);
+        alert(`Failed to load inventory data: ${error.message}`);
+      } else {
+        console.error('Error loading data:', error);
+        alert('Failed to load inventory data: Unknown error');
+      }
     } finally {
       setLoading(false);
     }
@@ -199,19 +204,20 @@ export default function Inventory() {
       // Reload inventory to get fresh data
       await loadInventoryAndCategories();
       
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error saving item:', error);
-      
-      if (error.code === 'PGRST116') {
-        alert('You do not have permission to modify inventory. Please check if you are logged in as an admin user.');
-      } else if (error.code === '23503') {
-        alert('Invalid category selected. Please choose a valid category.');
-      } else if (error.code === '23502') {
-        alert('Please fill in all required fields.');
-      } else if (error.code === '42501') {
-        alert('Permission denied. Please check if you are logged in as an admin user.');
+      if (error instanceof Error && 'code' in error) {
+        if ((error as any).code === 'PGRST116') {
+          alert('You do not have permission to modify inventory. Please check if you are logged in as an admin user.');
+        } else if ((error as any).code === '23503') {
+          alert('Invalid category selected. Please choose a valid category.');
+        } else if ((error as any).code === '23502') {
+          alert('Please fill in all required fields.');
+        } else if ((error as any).code === '42501') {
+          alert('Permission denied. Please check if you are logged in as an admin user.');
+        }
       } else {
-        alert(`Failed to save item: ${error.message || 'Unknown error'}`);
+        alert(`Failed to save item: ${error instanceof Error ? error.message : 'Unknown error'}`);
       }
     }
   };

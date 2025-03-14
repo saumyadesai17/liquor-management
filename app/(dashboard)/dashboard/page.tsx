@@ -55,7 +55,7 @@ interface LabelProps {
   y?: number;
   width?: number;
   height?: number;
-  value?: any;
+  value?: number;
   name?: string;
   percent?: number;
 }
