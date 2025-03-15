@@ -1,10 +1,46 @@
 // app/page.tsx
 'use client';
 
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 export default function LandingPage() {
+
+  const router = useRouter();
+  
+  useEffect(() => {
+    // Check if there's a hash in the URL (from email confirmation)
+    const checkForAuthRedirect = async () => {
+      const hash = window.location.hash;
+      
+      // If we have an access token in the URL hash, process it
+      if (hash && hash.includes('access_token')) {
+        try {
+          // Process the hash with Supabase
+          const { data, error } = await supabase.auth.getSession();
+          
+          if (data?.session) {
+            // Clear the hash from the URL
+            window.history.replaceState(null, '', window.location.pathname);
+            
+            // Redirect to a success page or show a success message
+            router.push('/auth/success'); // Create this page showing success message
+          } else if (error) {
+            console.error('Error processing authentication:', error);
+            router.push('/login?error=verification_failed');
+          }
+        } catch (err) {
+          console.error('Error handling redirect:', err);
+        }
+      }
+    };
+    
+    checkForAuthRedirect();
+  }, [router]);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-secondary/20">
       {/* Header */}
